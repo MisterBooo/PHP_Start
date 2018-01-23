@@ -1,17 +1,30 @@
+
+
+
+
 <?php
-/**
-* Created by MisterBigbooo.
-* User: Zeno
-* Date: 2018/1/23
-* Time: 上午11:33
-*/
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '123123';
+$conn = mysqli_connect($dbhost, $dbuser, $dbpass);
 
-
-$con = mysql_connect("localhost","root","123123");
-if (!$con){
-die('Could not connect: '.mysql_error());
+if(! $conn ) {
+    die('Could not connect: ' . mysqli_error());
 }
+echo "Connected successfully\n";
+$sql = 'CREATE Database test_Db2';
+//  老的
+//mysql_query('CREATE TEMPORARY TABLE `table`', $link);
+//$retval = mysqli_query( $sql, $conn );
+$retval = mysqli_query($conn,$sql);
 
-mysql_close($con)
+
+if(! $retval ) {
+    die('Could not create database: ' . mysqli_error());
+}
+echo "Database test_db created successfully\n";
+
+mysqli_close($conn);
 
 ?>
+
