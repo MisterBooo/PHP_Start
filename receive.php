@@ -12,6 +12,10 @@ $age = $_POST['age'];
 echo "name = $name , age = $age";
 echo "<hr>";
 
+
 print_r($_POST);
+
+
+
 
 ?>
